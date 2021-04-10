@@ -1,17 +1,22 @@
 # Site settings
-title:          Tale
-description:    "Minimal Jekyll theme for storytellers"
-baseurl:        "/tale"
-url:            "https://chesterhow.github.io"
+title:          FinnAhn
+description:    "Finn & Ahn Programming Blog"
+baseurl:        ""
+url:            "https://finnahn.github.io"
 
 # Google Analytics
-google_analytics: UA—XXXXXXXX-X
+google_analytics: G-KNHX3M66BZ
 
 # Author
-author:
-  name:         Chester How
-  url:          https://chester.how
-  email:        chesterhow@gmail.com
+authors:
+  finn:
+    name:         Finn
+    url:          https://github.com/youth6erry
+    email:
+  ahn:
+    name:         Ahn
+    url:          https://www.kuahn.com
+    email:        z@kuahn.com
 
 # Build settings
 markdown:       kramdown
