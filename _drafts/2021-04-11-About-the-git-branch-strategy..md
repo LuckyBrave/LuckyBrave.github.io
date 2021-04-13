@@ -9,6 +9,51 @@ tags: [git, git flow, github flow, gitlab flow]
 # Git 브랜치 전략들
 git flow, github flow, gitlab flow
 
-# git flow 3년 사용
+git flow 란?
+라이브러리, 데스크탑 어플리케이션처럼 사용자 다운로드해서  
 
-![Placeholder image](https://media.vlpt.us/images/luna238/post/ff6ac953-bff9-4cb9-bd3d-1d5dc9ba80b8/image.png "Placeholder image")
+git flow 왜 썼는가? 장단점 
+git flow 사용 예)
+git flow 선택 기준
+
+- 데탑 애플리케이션, 라이브러리등 사용자가 다운로드하는 애플리케이션인가? //-> git flow
+- 한명 이상의 동료와 같은 기능을 개발해? //-> git flow
+- Pull Request가 시점
+- 코드리뷰 시점 및 적용이 용이한지
+- 롤백이 용이한지
+
+github flow 란?
+지속적인 배
+github flow 왜 썼는가? 장단점
+github flow 사용 예)
+
+
+gitlab flow 란?
+gitlab flow 왜 썼는가? 장단점
+gitlab flow 사용 예)
+
+기준 : 배포편의성, 코드리뷰, 롤백, 특징
+
+
+# Git flow
+## svn에서 git으로
+팀에서 5년 동안 Git flow를 사용했다.
+해당 시점에 팀내 개발 환경은 로컬, 테스트 서버(2단계), 릴리즈 서버와 상용 서버로 구성되어 있었고
+각 단계를 별도의 브랜치로 운영하고 있었다.
+당시 SVN에서 Git으로 넘어간지는 꽤 되었으나 우리는 여전히 Git을 SVN처럼 한동안 사용했다.
+쏟아지는 과제로 Git에 대한 이해가 부족한 채로 브랜치의 편의성만을 보고 단순 특정 기능의 필요에 의해 git을 도입했다.
+
+## git flow 도입
+svn에 익숙한 팀원들은 불편함을 느끼지 못 했지만 팀원 중 한명의 제안으로 Git flow 도입을 제안했고 사용하기 시작했다.
+당시 개발 환경과 Git flow의 브랜치 전략이 어느 정도 맞다고 생각했고 특별히 다른 의견없이 진행됐다.
+
+## git flow 사용
+그로부터 5년 동안 팀에서 git flow를 기본으로한 git 브랜치 전략을 사용했고
+중간에 모호한 역할의 master branch, P.R의 거대함
+하지만 사실 이건 git flow의 문제가 아니다.
+
+## 우리가 사용하는 git 브랜치 전략의 문제
+
+## 결국 우리에게 맞는 git 브랜치를 설계해야 된다.
+
+참고문헌 (웹페이지명, 사이트명, URL)
