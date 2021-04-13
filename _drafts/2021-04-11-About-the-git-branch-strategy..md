@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Git 브랜치 전략"
+title:  "Git 브랜치 전략에 대해서"
 author: "Finn & Ahn"
 comments: true
-tags: git branch
+tags: git "git flow" "github flow" "gitlab flow"
 ---
 
 # Git 브랜치 전략들
