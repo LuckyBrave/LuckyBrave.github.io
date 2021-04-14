@@ -9,20 +9,35 @@ tags: [git, git flow, github flow, gitlab flow]
 # Git 브랜치 전략들
 git flow, github flow, gitlab flow
 
-git flow 란?
-라이브러리, 데스크탑 어플리케이션처럼 사용자 다운로드해서  
+## Git이란?
+Git은 오픈소스로 공개된 버전 컨트롤 시스템입니다. 
+소프트웨어를 반복적으로 개선해 나가고, 그 과정 중에 리뷰를 통해 더 나은 코드가 배포될 수 있도록 도와줍니다. 
+Git 배우기도 힘들었는데, Git 배포 전략도 필요하다니 배워야 할게 한두개가 아닙니다.  
+우선, git flow 를 먼저 알아 보겠습니다. 
 
-git flow 왜 썼는가? 장단점 
-git flow 사용 예)
-git flow 선택 기준
+## git flow 란?
+git flow는 Vincent Driessen을 통해 알려진 git을 활용한 배포 전략입니다. 
+릴리즈 브랜치, 기능 브랜치, 메인라인(상용 브랜치), 개발브랜치, 핫픽스 브랜치 등으로 구성되어,
+데스크탑 어플리케이션처럼 사용자가 다운로드 받아 사용하는 소프르웨어에 적합한 전략입니다. 
 
+### git flow 주의사항
+버전관리가 없는 웹사이트에서는 git flow 전략은 불필요한 과정들이 수반될 수 있습니다. 
+핫픽스 브랜치와 기능 브랜치가 동일한 프로세스로 운영 시 큰 의미를 갖지 않게 될 수도 있습니다. 
+
+### git flow 사용해볼까요?
+
+
+### git flow 선택 기준
 - 데탑 애플리케이션, 라이브러리등 사용자가 다운로드하는 애플리케이션인가? //-> git flow
 - 한명 이상의 동료와 같은 기능을 개발해? //-> git flow
 - Pull Request가 시점
+  해당 피처 브랜치가 테스트가 완료되고, 릴리즈 브랜치에 merge을 위해 pull Request를 요청합니다. 
+- Pull Request가 승인되었을때
+- Pull Request가 반려되었을때
 - 코드리뷰 시점 및 적용이 용이한지
 - 롤백이 용이한지
 
-github flow 란?
+github flow란?
 지속적인 배
 github flow 왜 썼는가? 장단점
 github flow 사용 예)
