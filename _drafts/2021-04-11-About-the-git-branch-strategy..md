@@ -31,12 +31,23 @@ git flow는 Vincent Driessen을 통해 알려진 git을 활용한 배포 전략�
 ### git flow 선택 기준
 현재 개발하는 소프트웨어가 데스크탑 애플리케이션, 라이브러리등 사용자가 다운로드하는 애플리케이션이라면 git flow에 적합할 수 있고, 
 또한 한명 이상의 동료와 같은 기능을 개발한다면 git flow 도입을 검토해도 좋다. 
+
+### git flow 리뷰 전략
 Pull Request 시점은 특정 custom 브랜치(sandbox, cbt등) 병합 시점이 될 수도 있고,
-개발 중인 기능 브랜치를 릴리즈 브랜치에 병합 시점이 Pull Request 시점으로 리뷰 할 타이밍이 된다. 
-만약 Pull Request가 승인(approve)가 된다면, 이력이 개발자 본인 이력으로 남기기 위해 병합은 개발자 본인이 진행한다. 
-- Pull Request가 반려되었을때 궁금하다. 다시 어게인
-- 코드리뷰 시점 및 적용이 용이한지
-- 롤백이 용이한지
+개발 중인 기능 브랜치를 릴리즈 브랜치에 병합 시점이 Pull Request 시점으로 리뷰 할 타이밍이 된다.
+만약 Pull Request가 승인(approve)가 된다면, 이력이 개발자 본인 이력으로 남기기 위해 병합은 개발자 본인이 진행한다.
+- Pull Request가 Request Changes로 보완사항이 있으면, pull Request를 닫고, 수정 후 Reopen된 pull request로 이어서 진행하면 된다.
+
+### git flow 롤백 전략 
+순수한 git flow, 우리는 베이스로 이런걸 적용했어.
+서비스에 대한 롤백은 태그베이스로 롤백하면 돼,
+코드에 대한 롤백은 hot fix로 패치한다. 
+
+master 브랜치의 태그는 git push --tags 명령어로 실행할 수 있다 
+하지만 지양해라, 이유는 내일..이시간에...
+
+### git flow feature가 개발기간이 길어진다면...
+
 
 github flow란?
 지속적인 배
