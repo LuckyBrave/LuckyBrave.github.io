@@ -34,7 +34,7 @@ git flow는 Vincent Driessen을 통해 알려진 git을 활용한 배포 전략�
 Pull Request 시점은 특정 custom 브랜치(sandbox, cbt등) 병합 시점이 될 수도 있고,
 개발 중인 기능 브랜치를 릴리즈 브랜치에 병합 시점이 Pull Request 시점으로 리뷰 할 타이밍이 된다. 
 만약 Pull Request가 승인(approve)가 된다면, 이력이 개발자 본인 이력으로 남기기 위해 병합은 개발자 본인이 진행한다. 
-- Pull Request가 반려되었을때
+- Pull Request가 반려되었을때 궁금하다.
 - 코드리뷰 시점 및 적용이 용이한지
 - 롤백이 용이한지
 
