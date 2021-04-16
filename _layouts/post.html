@@ -23,11 +23,9 @@ layout: default
   {{ content }}
 </div>
 
-{% comment %}
   {% if page.comments %}
     {% include disqus_comments.html %}
   {% endif %}
-{% endcomment %}
 
 <div class="pagination">
   {% if page.next.url %}
