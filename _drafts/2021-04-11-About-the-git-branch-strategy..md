@@ -49,6 +49,7 @@ master 브랜치의 태그는 git push --tags 명령어로 실행할 수 있다
 git push --atomic origin <branch name> <tag>
 git push --follow-tags
 Git 2.4 이후 git push --atomic origin <branch name> <tag>
+git push --tags. (Not recommended!) : 개인들의 모든 태그가 올라가서 뒤죽박죽이 될 수 있지 않을까? 
 
 #2 시작해봅니다. 
 ### git flow feature가 개발기간이 길어진다면...
