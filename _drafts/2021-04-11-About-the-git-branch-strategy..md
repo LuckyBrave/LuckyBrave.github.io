@@ -46,6 +46,11 @@ Pull Request 시점은 특정 custom 브랜치(sandbox, cbt등) 병합 시점이
 master 브랜치의 태그는 git push --tags 명령어로 실행할 수 있다 
 하지만 지양해라, 이유는 내일..이시간에...
 
+git push --atomic origin <branch name> <tag>
+git push --follow-tags
+Git 2.4 이후 git push --atomic origin <branch name> <tag>
+
+
 ### git flow feature가 개발기간이 길어진다면...
 
 
