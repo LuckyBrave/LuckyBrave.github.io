@@ -50,7 +50,7 @@ git push --atomic origin <branch name> <tag>
 git push --follow-tags
 Git 2.4 이후 git push --atomic origin <branch name> <tag>
 
-
+#2 시작해봅니다. 
 ### git flow feature가 개발기간이 길어진다면...
 
 
