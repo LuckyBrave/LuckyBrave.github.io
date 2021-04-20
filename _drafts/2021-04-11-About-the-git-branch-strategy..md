@@ -25,8 +25,10 @@ git flow는 Vincent Driessen을 통해 알려진 git을 활용한 배포 전략�
 예를 들면, 핫픽스 브랜치와 기능 브랜치가 동일한 프로세스로 운영 시 큰 의미를 갖지 않게 될 수도 있다. 
 또한 버전 관리를 하지 않음에도 릴리즈 브랜치 생성 후 기능 브랜치와 병합 단계를 거쳐야 된다. 
 
-### git flow 사용해볼까요?
+### git flow 키워드
+릴리즈 브랜치
 
+### git flow 사용해볼까요?
 
 ### git flow 선택 기준
 현재 개발하는 소프트웨어가 데스크탑 애플리케이션, 라이브러리등 사용자가 다운로드하는 애플리케이션이라면 git flow에 적합할 수 있고, 
@@ -39,33 +41,54 @@ Pull Request 시점은 특정 custom 브랜치(sandbox, cbt등) 병합 시점이
 - Pull Request가 Request Changes로 보완사항이 있으면, pull Request를 닫고, 수정 후 Reopen된 pull request로 이어서 진행하면 된다.
 
 ### git flow 롤백 전략  
-순수한 git flow, 우리는 베이스로 이런걸 적용했어.
-서비스에 대한 롤백은 태그베이스로 롤백하면 돼,
-코드에 대한 롤백은 hot fix로 패치한다. 
+롤백 전략은 태깅 정보 기반으로 재빌드를 통해서 서비스 복구를 할수도 있고,
+hot fix 브랜치 생성을 통해서 재배포로 코드 이력 및 서비스 복구를 할 수 있다.  
 
-master 브랜치의 태그는 git push --tags 명령어로 실행할 수 있다 
-하지만 지양해라, 이유는 내일..이시간에...
-
+master 브랜치의 태그는 git push --tags 명령어로 실행할 수 있다
 git push --atomic origin <branch name> <tag>
-git push --follow-tags
-Git 2.4 이후 git push --atomic origin <branch name> <tag>
 git push --tags. (Not recommended!) : 개인들의 모든 태그가 올라가서 뒤죽박죽이 될 수 있지 않을까? 
 
 #2 시작해봅니다. 
 ### git flow feature가 개발기간이 길어진다면...
 
 
-github flow란?
-지속적인 배
-github flow 왜 썼는가? 장단점
+## github flow란?
+github 에서 사용하는 워크플로우이다. 
+하루에도 몇번씩 배포하는 운영 환경를 위한 심플한 워크플로우로 이해하면 된다. 
+위에 언급된 git flow에서 세가지 부분이 단순화 되었다.
+1. release 브랜치가 없다.
+2. hot fix 브랜치없이 기능 브랜치를 사용한다.  
+3. develop 브랜치 없이 master만 존재한다. 
+
+## github flow 키워드는?
+master 브랜치와 master merge 권한이라 하겠다. 
+
+## github flow 좋은 점
+pull request를 언제든 열 수 있다. (release 브랜치 생성 없이 말이다)
+git fetch를 통해, 업데이트된 브랜치명만으로도 브랜치명이 곧 작업 타이틀이 되기 때문에 진행하는 작업 파악이 가능하다.
+
 github flow 사용 예)
 
+## gitlab flow 란?
+### gitlab flow 키워드
+프로덕션 환경 배포 흐름 제어.
+cherry-pick
 
-gitlab flow 란?
+
 gitlab flow 왜 썼는가? 장단점
 gitlab flow 사용 예)
+git flow 리서칭하고, 스테이징용 커스텀 브랜치로 커스텀화 해서 도입한다면, 
+Gitlab 먼저 살펴봐. 
 
 기준 : 배포편의성, 코드리뷰, 롤백, 특징
+
+
+우리
+ft-branch -> sandbox
+ft-branch -> cbt
+
+gitlab
+ft-branch -> master -> cherry -> pre-production -> cherry -> production
 
 ## 처음엔 단순히 SVN에서 Git으로.
 5년 전 우리는 VCS를 SVN으로 사용하고 있었다. 그러다 Git 유행을 틈타 Git으로 넘어갔고  
