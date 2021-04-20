@@ -1,8 +1,8 @@
 # Site settings
-title:          Finn Ahn
-description:    "Finn & Ahn Programming Blog"
+title:          Code with Lucky Father & Brave Papa
+description:    "Lucky Father & Brave Papa's Blog"
 baseurl:        ""
-url:            "https://finnahn.github.io"
+url:            "https://lfbf.github.io"
 
 # Google Analytics
 google_analytics: G-KNHX3M66BZ
@@ -10,11 +10,11 @@ google_analytics: G-KNHX3M66BZ
 # Author
 authors:
   finn:
-    name:         Finn
+    name:         youth6erry
     url:          https://github.com/youth6erry
     email:
   ahn:
-    name:         Ahn
+    name:         KUAHN
     url:          https://www.kuahn.com
     email:        z@kuahn.com
 
@@ -33,7 +33,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
-  # - jemoji #Uncomment this to allow emoji in your post
+#  - jemoji
 
 # Permalinks
 permalink:      /:year-:month-:day/:title
@@ -44,3 +44,6 @@ exclude: [ Gemfile, Gemfile.lock, tale.gemspec ]
 
 # Disqus (Set to your disqus id)
 disqus:         jekyll-tale
+
+# with local
+theme:      tale

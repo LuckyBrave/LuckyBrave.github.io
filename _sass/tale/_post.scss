@@ -30,13 +30,14 @@
   p {
     margin: 0 0 1rem;
     text-align: justify;
+    line-height: 2;
   }
 
   a:hover {
     text-decoration: underline;
   }
 
-  img {
+  img.center {
     margin: 0 auto 0.5rem;
   }
 
