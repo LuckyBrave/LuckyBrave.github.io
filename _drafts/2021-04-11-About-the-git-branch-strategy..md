@@ -73,13 +73,13 @@ github flow 사용 예)
 ## gitlab flow 란?
 ### gitlab flow 키워드
 프로덕션 환경 배포 흐름 제어.
-cherry-pick
 
 
-gitlab flow 왜 썼는가? 장단점
-gitlab flow 사용 예)
-git flow 리서칭하고, 스테이징용 커스텀 브랜치로 커스텀화 해서 도입한다면,
-Gitlab 먼저 살펴봐.
+### gitlab flow 왜 썼는가? 장단점
+출시시가를 제어하거나, 배포환경에 따른 분기가 필요할 때 마지막으로 외부에 릴리즈 되는 소프트웨어라면
+production, pre-preduction, stable 브랜치를 활용해서 적합한 플로우를 만들 수 있다. 
+
+### gitlab flow 사용 예)
 
 기준 : 배포편의성, 코드리뷰, 롤백, 특징
 
