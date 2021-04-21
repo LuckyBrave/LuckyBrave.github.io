@@ -91,7 +91,7 @@ ft-branch -> cbt
 gitlab
 ft-branch -> master -> cherry -> pre-production -> cherry -> production
 
-## 처음엔 단순히 SVN에서 Git으로.
+# 처음엔 단순히 SVN에서 Git으로.
 ![SVN to Git](/assets/img/About-the-git-branch-strategy/svntogit.png){: width="500"}
 5년 전 우리는 VCS를 SVN으로 사용하고 있었다. 그러다 Git 유행을 틈타 Git으로 넘어갔고  
 한동안 Git을 SVN처럼 사용했다. 하지만 다른 팀처럼 Git 자체를 도입했다는 생각에 뿌듯했다.  
@@ -99,7 +99,7 @@ ft-branch -> master -> cherry -> pre-production -> cherry -> production
 각 단계별로 별도의 브랜치로 운영할 수 있어서 상당히 마음에 들었다.  
 하지만 쏟아지는 업무로 Git에 대한 이해는 부족한 채로 브랜치 운영의 편의성만을 보고 Git을 도입했다.
 
-## 일단 Git flow 도입.
+# 일단 Git flow 도입.
 ![SVN to Git](/assets/img/About-the-git-branch-strategy/gitflow.png){: width="400"}
 SVN에 익숙한 팀원들은 Git의 개념들을 완전히 이해하진 못했지만 큰 불편함을 느끼지도 않았다.  
 가끔 문제가 발생했을 때는 어떻게든 해결해 나갈 수 있었다. (이런 방치는 결국 문제를 일으켰다.)  
@@ -107,7 +107,7 @@ SVN에 익숙한 팀원들은 Git의 개념들을 완전히 이해하진 못했�
 당시 개발 환경과 Git flow의 브랜치 전략이 어느 정도 맞는다고 생각했고 또 특별히 이견도 없었다.  
 정확히는 Git flow를 기반으로 한 우리만의 Git flow였지만 기존 Git flow 사상을 최대한 따르기로 했다.
 
-## Git flow 사용 그리고 문제점.
+# Git flow 사용 그리고 문제점.
 그로부터 4년 동안 팀에서 Git flow를 기본으로 한 Git 브랜치 전략을 사용했고  
 사용하는 동안 사소한 불편한 점과 모호한 역할의 브랜치 등을 빼곤 사실 나쁘지 않았다.  
 그러다 몇 년 전 팀 내부에서 코드 리뷰에 대한 요구 사항이 생겨났고 우리는 코드 리뷰를 적극적으로 도입하기로 했다.  
@@ -128,7 +128,7 @@ SVN에 익숙한 팀원들은 Git의 개념들을 완전히 이해하진 못했�
 그럼 업무에 포함하면 코드 리뷰가 될까?  
 시간이 어느 정도 지난 후에야 우린 이런 부분을 의식하기 시작했다.
 
-## Git flow의 문제?
+# Git flow의 문제?
 우리는 서로의 열정과 의지만을 의심했다. 우리가 처한 상황과 환경, 방식에 대해선 별다른 의심은 하지 않았다.     
 그러다 점검하는 차원에서 Git flow를 창시한 **Vincent Driessen**이 작성한,  
 [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/) 포스팅을 다시 보게 됐다.  
@@ -155,7 +155,7 @@ _'어라? 우린 웹 서비스를 개발하며 Git flow를 쓰고 있는데'_
 _'우리한테 develop 브랜치가 필요할까?'_    
 _'우리한테 release 브랜치가 필요할까?'_
 
-**두번째, 우리는 feature 브랜치의 life cycle을 너무 길게 가져갔다.**    
+**두번째, 우리는 feature 브랜치의 life cycle을 너무 길게 가져갔다.**  
 메이저 feature 브랜치 하나에는 다음에 배포될 모든 기능이 담겨져 있었다.   
 그런 방대한 양을 과연 매번 코드 리뷰할 수 있을까?  
 또, 테스트 케이스를 돌릴 수 있을까?  
@@ -164,23 +164,23 @@ _'우리한테 release 브랜치가 필요할까?'_
 
 그 외에도 여러 문제가 있지만(CI/CD등) 가장 큰 문제는 역시 우리의 문제의식이었다.
 
-## 결국 우리에게 맞는 Git 브랜치 전략을 설계해야 한다.
+# 결국 우리에게 맞는 Git 브랜치 전략을 설계해야 한다.
 우린 뒤 늦게 Git flow와 관련된 기술 부채를 청산하려고 현재 노력 중이다.  
 이미 검증된 전략들의 장점을 충분히 검토해서 취하고 우리에게 불필요한 과정은 생략하며 찾아가고 있다.  
 **Vincent Driessen**의 말처럼 모든 걸 해결해 줄 수 있는 만병통치약은 없다.  
 우리 스스로 판단하고 결정해야 한다.
 
-우리가 겪는 여러 문제들로 우선 이 정도 결론은 내릴 수 있었다.
+우리가 겪는 여러 문제로 우선 이 정도 결론은 내릴 수 있었다.
 
-**첫째**, feature 브랜치는 동료들이 코드 리뷰를 할 수 있을 정도의 규모여야 한다.  
+**첫째, feature 브랜치는 동료들이 코드 리뷰를 할 수 있을 정도의 크기여야 한다.**    
 기준을 정하는 게 쉽지 않지만 우선 feature 브랜치의 life cycle을 최대 하루나 이틀 정도로 정하고 실험해보자.  
 숙련된다면 의미 있는 단위로 짧게 가져갈 수 있도록 실험해보자
 
-**둘째**, P.R(or M.R)을 강화하기 위해서는 사실 그 누구도 어드민 권한을 가질 이유가 없다.  
+**둘째, P.R(or M.R)을 강화하기 위해서는 사실 그 누구도 어드민 권한을 가질 이유가 없다.**      
 모든 코드는 예외 없이 리뷰되어야 하고 동료들의 동의가 필요하다.  
 팀웍을 발휘해보자. 내 코드처럼 리뷰하고 코멘트하자.
 
-**셋째**, 빌드와 테스트는 당연하고 코드 리뷰는 필수 과정이며  
+**셋째, 빌드와 테스트는 당연하고 코드 리뷰는 필수 과정이며**     
 대상의 리뷰 코멘트가 모두 처리되고 동료들이 승인하면 메인 브랜치로 병합이 진행된다.  
 메인 브랜치 병합 전략은 히스토리 정리를 위해 필수적으로 **rebase merge** 한다.
 
@@ -199,3 +199,4 @@ _'우리한테 release 브랜치가 필요할까?'_
 - [http://scottchacon.com/2011/08/31/github-flow.html](http://scottchacon.com/2011/08/31/github-flow.html)
 - [https://docs.gitlab.com/ee/topics/gitlab_flow.html](https://docs.gitlab.com/ee/topics/gitlab_flow.html)
 - [https://guides.github.com/introduction/flow/](https://guides.github.com/introduction/flow/)
+- [https://about.gitlab.com/topics/version-control/what-are-gitlab-flow-best-practices/](https://about.gitlab.com/topics/version-control/what-are-gitlab-flow-best-practices/)
