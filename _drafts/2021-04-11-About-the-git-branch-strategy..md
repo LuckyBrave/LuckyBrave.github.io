@@ -71,15 +71,21 @@ git fetch를 통해, 업데이트된 브랜치명만으로도 브랜치명이 �
 github flow 사용 예)
 
 ## gitlab flow 란?
+GitLab Flow는 Git Flow보다 심플한 대안 전략입니다. 
+기능 중심 개발과 이슈트래킹이 용이합니다. 
+production 브랜치와 stable 브랜치를 사용하면서 모든 기능 브랜치를 main브랜치로 병합합니다. 
+production 브랜치와 stable 브랜치는 아래에서 좀 더 자세히 살펴보겠습니다. 
+
+
 ### gitlab flow 키워드
 프로덕션 환경 배포 흐름 제어.
-cherry-pick
 
 
-gitlab flow 왜 썼는가? 장단점
-gitlab flow 사용 예)
-git flow 리서칭하고, 스테이징용 커스텀 브랜치로 커스텀화 해서 도입한다면,
-Gitlab 먼저 살펴봐.
+### gitlab flow 왜 썼는가? 장단점
+출시시가를 제어하거나, 배포환경에 따른 분기가 필요할 때 마지막으로 외부에 릴리즈 되는 소프트웨어라면
+production, pre-preduction, stable 브랜치를 활용해서 적합한 플로우를 만들 수 있다. 
+
+### gitlab flow 사용 예)
 
 기준 : 배포편의성, 코드리뷰, 롤백, 특징
 
