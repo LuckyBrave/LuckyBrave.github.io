@@ -46,4 +46,4 @@ exclude: [ Gemfile, Gemfile.lock, tale.gemspec ]
 disqus:         jekyll-tale
 
 # with local
-theme:      tale
+#theme:      tale
