@@ -7,10 +7,10 @@ Note of reflection (March 5, 2020)
 회고록
 
 This model was conceived in 2010, now more than 10 years ago, and not very long after Git itself came into being.
-git-flow 모델은 10년 전인 2010년에 구상되었으며, Git이 생긴지 얼마되지 않은 시점이었습니다. 
+git-flow 모델은 10년 전인 2010년에 구상되었으며, Git이 생긴지 얼마되지 않은 시점이었다.  
 
 In those 10 years, git-flow (the branching model laid out in this article) has become hugely popular in many a software team to the point where people have started treating it like a standard of sorts — but unfortunately also as a dogma or panacea.
-지난 10년 동안 git-flow는 많은 소프트웨어 팀에서 사람들이 이를 일종의 표준처럼 취급하기 시작할 때까지 엄청난 인기를 얻었지만 안타깝게도 비판적인 수용없는 맹신에 이르렀습니다. 
+지난 10년 동안 git-flow는 많은 소프트웨어 팀에서 사람들이 이를 일종의 표준처럼 취급하기 시작할 때까지 엄청난 인기를 얻었지만 안타깝게도 비판적인 수용없는 맹신에 이르렀다.  
 
 During those 10 years, Git itself has taken the world by a storm, and the most popular type of software that is being developed with Git is shifting more towards web apps — at least in my filter bubble. 
 Git이 세계적으로 전파되었고, Git으로 개발 중인 소프트웨어는 웹앱 유형이 많아지는 것으로 보였다.  
@@ -27,17 +27,18 @@ If, however, you are building software that is explicitly versioned, or if you n
 그러나 버전별로 소프트웨어를 빌드하거나 다양한 환경에서 여러 버전의 소프트웨어를 지원해야하는 경우 git-flow 가 적합할 수 있다. 
 
 To conclude, always remember that panaceas don't exist. Consider your own context. Don't be hating. Decide for yourself.
-결론적으로 만병통치약이 존재하지 않는다는 것을 항상 염두해서, 자신의 상황을 고려하십시오. 스스로 상황에 맞게 결정하십시오.
+결론적으로 만병통치약이 존재하지 않는다는 것을 항상 염두해서, 자신의 상황을 고려하고, 스스로 상황에 맞게 결정해야 한다. 
 
 
 In this post I present the development model that I’ve introduced for some of my projects (both at work and private) about a year ago, 
-
+이 글은 약 1년전에 직장과 개인적으로 진행했던 프로젝트에 적용한 성공적이었던 개발모델에 대해 소개한다.
 and which has turned out to be very successful.
 
 I’ve been meaning to write about it for a while now, but I’ve never really found the time to do so thoroughly, until now. 
+그 동안 경험한 것들에 대해 글을 쓰려고 했지만, 지금까지 쓸 기회가 없었다.
 
 I won’t talk about any of the projects’ details, merely about the branching strategy and release management.
-
+프로젝트의 상세한 내용을 이야기 할 생각은 없고, 단지 브랜치 전략과 릴리즈 관리에 대한 이야기를 하고자 한다. 
 
 Why git?
 
