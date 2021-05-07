@@ -40,15 +40,48 @@ I’ve been meaning to write about it for a while now, but I’ve never really f
 I won’t talk about any of the projects’ details, merely about the branching strategy and release management.
 프로젝트의 상세한 내용을 이야기 할 생각은 없고, 단지 브랜치 전략과 릴리즈 관리에 대한 이야기를 하고자 한다. 
 
-Why git?
 
-For a thorough discussion on the pros and cons of Git compared to centralized source code control systems, see the web. There are plenty of flame wars going on there. As a developer, I prefer Git above all other tools around today. Git really changed the way developers think of merging and branching. From the classic CVS/Subversion world I came from, merging/branching has always been considered a bit scary (“beware of merge conflicts, they bite you!”) and something you only do every once in a while.
+Why git? 
+왜 Git을 사용해야 하는가?
+ 
 
-But with Git, these actions are extremely cheap and simple, and they are considered one of the core parts of your daily workflow, really. For example, in CVS/Subversion books, branching and merging is first discussed in the later chapters (for advanced users), while in every Git book, it’s already covered in chapter 3 (basics).
+그러나 Git을 사용하면 이러한 작업은 매우 저렴하고 간단 하며 실제로 일상적인 워크 플로 의 핵심 부분 중 하나로 간주됩니다 . 
+예를 들어 CVS / Subversion 책 에서 분기 및 병합은 이후 장 (고급 사용자 용)에서 먼저 논의되는 반면, 모든 Git 책 에서는 이미 3 장 (기본)에서 다룹니다.
 
-As a consequence of its simplicity and repetitive nature, branching and merging are no longer something to be afraid of. Version control tools are supposed to assist in branching/merging more than anything else.
+단순성과 반복적 특성으로 인해 분기 및 병합은 더 이상 두려워 할 것이 아닙니다. 버전 제어 도구는 무엇보다 분기 / 병합을 지원해야합니다.
 
-Enough about the tools, let’s head onto the development model. The model that I’m going to present here is essentially no more than a set of procedures that every team member has to follow in order to come to a managed software development process.
+도구에 대해 충분히 알고 있으므로 개발 모델로 넘어가겠습니다. 
+여기서 소개 할 모델은 기본적으로 모든 팀원이 관리 형 소프트웨어 개발 프로세스에 도달하기 위해 따라야하는 일련의 절차에 지나지 않습니다.
+
+For a thorough discussion on the pros and cons of Git compared to centralized source code control systems, see the web.
+중앙 집중식 소스 코드 관리 시스템과 비교한 Git의 장단점에 대한 자세한 내용은 웹을 참조하면 된다. 
+
+There are plenty of flame wars going on there. As a developer, I prefer Git above all other tools around today.
+Git really changed the way developers think of merging and branching. 
+From the classic CVS/Subversion world I came from, 
+merging/branching has always been considered a bit scary (“beware of merge conflicts, they bite you!”) and
+something you only do every once in a while.
+거기에서 많은 논쟁들이 진행되고 있다. 개발자로서 나는 다른 모든 VCS도구보다 Git을 선호한다. 
+Git은 실제로 개발자가 병합 및 분기에 대해 사고 방식 바꿨다.  
+기존에 CVS / Subversion 에서 병합 / 브랜치는 항상 작업을 두렵게 했다.( "병합 충돌을 조심하세요. 짜증유발!") 가끔씩 만하는 일로 생각했다. 
+
+
+But with Git, these actions are extremely cheap and simple, and they are considered one of the core parts of your daily workflow,
+really. For example, in CVS/Subversion books, branching and merging is first discussed in the later chapters (for advanced users),
+while in every Git book, it’s already covered in chapter 3 (basics).
+그러나 Git을 사용하면 이러한 작업은 짧은 시간과 간단한 방법으로 일상적인 워크플로 중 하나로 만들어 버렸다. 
+예를 들어 CVS / Subversion 책 에서 브랜치 및 병합은 이후 장 (고급 사용자편)에서 먼저 논의되는 반면, 모든 Git 책 에서는 이미 3 장 내에서 (기본편)에서 다룬다.
+
+As a consequence of its simplicity and repetitive nature, branching and merging are no longer something to be afraid of. 
+Version control tools are supposed to assist in branching/merging more than anything else.
+단순성과 반복적 특성으로 인해 브랜치 및 병합은 더 이상 두려워 할 것이 아니다. 버전 제어 도구는 무엇보다 브랜치 / 병합을 우선적으로 지원해야합니다.
+
+Enough about the tools, let’s head onto the development model.
+The model that I’m going to present here is essentially no more than a set of procedures that 
+every team member has to follow in order to come to a managed software development process.
+도구에 대해 충분히 알고 있으므로 개발 모델로 넘어가보자. 
+여기서 소개 할 모델은 기본적으로 소프트웨어 개발하기 위해 모든 팀원이 따라야할 일련의 과정에 불과하다. 
+
 
 Decentralized but centralized
 
@@ -91,6 +124,9 @@ Each of these branches have a specific purpose and are bound to strict rules as 
 By no means are these branches “special” from a technical perspective. The branch types are categorized by how we use them. They are of course plain old Git branches.
 
 Feature branches
+
+
+
 
 
 May branch off from:
@@ -239,7 +275,9 @@ Switched to branch 'develop'
 $ git merge --no-ff hotfix-1.2.1
 Merge made by recursive.
 (Summary of changes)
-The one exception to the rule here is that, when a release branch currently exists, the hotfix changes need to be merged into that release branch, instead of develop. Back-merging the bugfix into the release branch will eventually result in the bugfix being merged into develop too, when the release branch is finished. (If work in develop immediately requires this bugfix and cannot wait for the release branch to be finished, you may safely merge the bugfix into develop now already as well.)
+The one exception to the rule here is that, when a release branch currently exists, the hotfix changes need to be merged into that release branch, instead of develop. 
+Back-merging the bugfix into the release branch will eventually result in the bugfix being merged into develop too, when the release branch is finished.
+(If work in develop immediately requires this bugfix and cannot wait for the release branch to be finished, you may safely merge the bugfix into develop now already as well.)
 
 Finally, remove the temporary branch:
 
