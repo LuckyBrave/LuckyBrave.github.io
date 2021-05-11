@@ -40,9 +40,10 @@ I’ve been meaning to write about it for a while now, but I’ve never really f
 I won’t talk about any of the projects’ details, merely about the branching strategy and release management.
 프로젝트의 상세한 내용을 이야기 할 생각은 없고, 단지 브랜치 전략과 릴리즈 관리에 대한 이야기를 하고자 한다. 
 
+![이미지변경필요](https://nvie.com/img/git-model@2x.png)
 
 Why git? 
-왜 Git을 사용해야 하는가?
+## 왜 Git을 사용해야 하는가?
  
 
 그러나 Git을 사용하면 이러한 작업은 매우 저렴하고 간단 하며 실제로 일상적인 워크 플로 의 핵심 부분 중 하나로 간주됩니다 . 
@@ -83,36 +84,62 @@ every team member has to follow in order to come to a managed software developme
 여기서 소개 할 모델은 기본적으로 소프트웨어 개발하기 위해 모든 팀원이 따라야할 일련의 과정에 불과하다. 
 
 
-Decentralized but centralized
+## Decentralized but centralized
+## 분산된 중앙집중형
+The repository setup that we use and that works well with this branching model, is that with a central “truth” repo. 
+Note that this repo is only considered to be the central one (since Git is a DVCS, there is no such thing as a central repo at a technical level). 
+We will refer to this repo as origin, since this name is familiar to all Git users.
+우리가 사용하고 있는 현재 브랜치 모델과 잘 동작하는 방법은 중앙 저장소라고 여겨지는 저장소를 설정하는 것입니다. 
+중앙 저장소라고 여겨질 뿐 사실 분산형 VCS인 GIT에서는 중앙 저장소 같은 거 없습니다. 
+<origin> 저장소는 Git 사용자에게 친숙하기 때문에 중앙 저장소를 <origin>으로 합니다. 
 
-The repository setup that we use and that works well with this branching model, is that with a central “truth” repo. Note that this repo is only considered to be the central one (since Git is a DVCS, there is no such thing as a central repo at a technical level). We will refer to this repo as origin, since this name is familiar to all Git users.
+![](https://nvie.com/img/centr-decentr@2x.png)
 
+Each developer pulls and pushes to origin. 
+But besides the centralized push-pull relationships, each developer may also pull changes from other peers to form sub teams. 
+For example, this might be useful to work together with two or more developers on a big new feature, 
+before pushing the work in progress to origin prematurely. 
+In the figure above, there are subteams of Alice and Bob, Alice and David, and Clair and David.
+각 개발자는 <origin>브랜치에서 pull, push 할 수 있습니다. 
+그러나 중앙집중식 push-pull관계 외에도, 각 개발자는 다른 동료의 변경사항을 가져와 하위단위를 구성 할 수 있습니다.
+예를 들어, <origin> 브랜치에 작업한 것을 push하기 전에, 하나의 큰 기능을 여러 명이 작업을 하는 경우 유용할 수 있습니다.
+위 그림에는 Alice와 Bob, Alice와 David, Clair와 David의 하위 단위로 정의했습니다.
+Technically, this means nothing more than that Alice has defined a Git remote, named bob, 
+pointing to Bob’s repository, and vice versa.
+기술적으로 Alice가 Bob의 저장소명 <bob>을 가리키라는 Git 원격 브랜치를 정의하는 것 이상의 의미가 아니며, 그 반대의 경우도 마찬가지 입니다. 
 
+## The main branches
+## 메인 브랜치
 
-Each developer pulls and pushes to origin. But besides the centralized push-pull relationships, each developer may also pull changes from other peers to form sub teams. For example, this might be useful to work together with two or more developers on a big new feature, before pushing the work in progress to origin prematurely. In the figure above, there are subteams of Alice and Bob, Alice and David, and Clair and David.
-
-Technically, this means nothing more than that Alice has defined a Git remote, named bob, pointing to Bob’s repository, and vice versa.
-
-The main branches
-
-
-At the core, the development model is greatly inspired by existing models out there. The central repo holds two main branches with an infinite lifetime:
-
+At the core, the development model is greatly inspired by existing models out there. 
+The central repo holds two main branches with an infinite lifetime:
+개발 모델을 핵심사항은 기존모델에서 큰 영감을 받아 만들어 졌다.  
+그리고 중앙 저장소는 항상 유지되는 두 개의 메인 브랜치를 갖게 된다.
 master
 develop
-The master branch at origin should be familiar to every Git user. Parallel to the master branch, another branch exists called develop.
 
+The master branch at origin should be familiar to every Git user. 
+Parallel to the master branch, another branch exists called develop.
+<origin>원본 원격저장소의 <master>은 모든 Git 사용자에게 익숙해져야할 브랜치이고,
+<master>브랜치와 같은 또다른 메인 브랜치로 <develop> 브랜치가 있다. 
 We consider origin/master to be the main branch where the source code of HEAD always reflects a production-ready state.
 
-We consider origin/develop to be the main branch where the source code of HEAD always reflects a state with the latest delivered development changes for the next release. Some would call this the “integration branch”. This is where any automatic nightly builds are built from.
+We consider origin/develop to be the main branch where the source code of HEAD always reflects a state with the latest delivered development changes for the next release.
+Some would call this the “integration branch”. This is where any automatic nightly builds are built from.
 
-When the source code in the develop branch reaches a stable point and is ready to be released, all of the changes should be merged back into master somehow and then tagged with a release number. How this is done in detail will be discussed further on.
+When the source code in the develop branch reaches a stable point and is ready to be released, 
+all of the changes should be merged back into master somehow and then tagged with a release number. 
+How this is done in detail will be discussed further on.
 
-Therefore, each time when changes are merged back into master, this is a new production release by definition. We tend to be very strict at this, so that theoretically, we could use a Git hook script to automatically build and roll-out our software to our production servers everytime there was a commit on master.
+Therefore, each time when changes are merged back into master, 
+this is a new production release by definition. We tend to be very strict at this, 
+so that theoretically, we could use a Git hook script to automatically 
+build and roll-out our software to our production servers everytime there was a commit on master.
 
 Supporting branches
 
-Next to the main branches master and develop, our development model uses a variety of supporting branches to aid parallel development between team members, ease tracking of features, prepare for production releases and to assist in quickly fixing live production problems. Unlike the main branches, these branches always have a limited life time, since they will be removed eventually.
+Next to the main branches master and develop, our development model uses a variety of supporting branches to aid parallel development between team members, 
+ease tracking of features, prepare for production releases and to assist in quickly fixing live production problems. Unlike the main branches, these branches always have a limited life time, since they will be removed eventually.
 
 The different types of branches we may use are:
 
@@ -124,8 +151,6 @@ Each of these branches have a specific purpose and are bound to strict rules as 
 By no means are these branches “special” from a technical perspective. The branch types are categorized by how we use them. They are of course plain old Git branches.
 
 Feature branches
-
-
 
 
 
