@@ -118,23 +118,33 @@ The central repo holds two main branches with an infinite lifetime:
 master
 develop
 
+![](https://nvie.com/img/main-branches@2x.png)
+
 The master branch at origin should be familiar to every Git user. 
 Parallel to the master branch, another branch exists called develop.
 <origin>원본 원격저장소의 <master>은 모든 Git 사용자에게 익숙해져야할 브랜치이고,
 <master>브랜치와 같은 또다른 메인 브랜치로 <develop> 브랜치가 있다. 
+
 We consider origin/master to be the main branch where the source code of HEAD always reflects a production-ready state.
+origin/master 브랜치는 항상 상용 배포가 가능한 HEAD 소스코드로 메인브랜치입니다.  
 
 We consider origin/develop to be the main branch where the source code of HEAD always reflects a state with the latest delivered development changes for the next release.
 Some would call this the “integration branch”. This is where any automatic nightly builds are built from.
+origin/develop 브랜치는 다음 릴리즈를 할 수 있도록 가장 최근 작업 이력의 HEAD 소스코드로 메인 브랜치 입니다. 
+통합브랜치로 불리기도 합니다. 자동빌드가 생성되는 곳이기도 합니다. 
 
 When the source code in the develop branch reaches a stable point and is ready to be released, 
 all of the changes should be merged back into master somehow and then tagged with a release number. 
 How this is done in detail will be discussed further on.
+develop 브랜치 코드가 릴리즈할 준비가 되면, master브랜치에 병합한 후 릴리즈 번호로 태그를 생성합니다. 
+어떤 방식으로 수행되는지는 아래서 설명합니다. 
 
 Therefore, each time when changes are merged back into master, 
 this is a new production release by definition. We tend to be very strict at this, 
 so that theoretically, we could use a Git hook script to automatically 
 build and roll-out our software to our production servers everytime there was a commit on master.
+master브랜치에 변경작업들 병합될때마다, 새로운 상용 릴리즈가 정의됩니다.
+master브랜치에 커밋될 때마다, Git 훅 스크립트를 통해 자동으로 소프트웨어를 빌드하고 상용서버에 배포 할 수 있습니다.
 
 Supporting branches
 
