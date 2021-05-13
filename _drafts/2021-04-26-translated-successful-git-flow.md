@@ -147,22 +147,36 @@ master브랜치에 변경작업들 병합될때마다, 새로운 상용 릴리�
 master브랜치에 커밋될 때마다, Git 훅 스크립트를 통해 자동으로 소프트웨어를 빌드하고 상용서버에 배포 할 수 있습니다.
 
 Supporting branches
+지원 브랜치
 
-Next to the main branches master and develop, our development model uses a variety of supporting branches to aid parallel development between team members, 
-ease tracking of features, prepare for production releases and to assist in quickly fixing live production problems. Unlike the main branches, these branches always have a limited life time, since they will be removed eventually.
+Next to the main branches master and develop, 
+our development model uses a variety of supporting branches to aid parallel development 
+between team members, 
+메인 브랜치 <master>와 <develop> 과 함께 git flow 개발 모델은 다양한 지원 브랜치를 사용하여
+팀 구성원간 독립적인 개발 할 수 있게 한다. 
 
+ease tracking of features, prepare for production releases and to assist in 
+quickly fixing live production problems.
+기능을 쉽게 추적하고, 상용 릴리스를 준비하고, 상용에서 발생한 문제를 신속하게 해결하도록 지원합니다
+Unlike the main branches, 
+these branches always have a limited life time, since they will be removed eventually.
+메인 브랜치와 달리, 계속 유지되지 않고, 결국 삭제됩니다.  
 The different types of branches we may use are:
+우리가 사용할 수있는 여러 가지 유형의 분기는 다음과 같습니다.
 
 Feature branches
 Release branches
 Hotfix branches
-Each of these branches have a specific purpose and are bound to strict rules as to which branches may be their originating branch and which branches must be their merge targets. We will walk through them in a minute.
 
-By no means are these branches “special” from a technical perspective. The branch types are categorized by how we use them. They are of course plain old Git branches.
+Each of these branches have a specific purpose and are bound to strict rules as to which branches may be their originating branch 
+and which branches must be their merge targets. We will walk through them in a minute.
+By no means are these branches “special” from a technical perspective. 
+The branch types are categorized by how we use them. They are of course plain old Git branches.
+각 브랜치에는 특정 목적이 있으며 어떤 브랜치가 원래 브랜치가 될 수 있고 어떤 브랜치가 병합 대상이되어야 하는지에 대한 엄격한 규칙이 적용됩니다. 잠시 후에 살펴 보겠습니다.
+기술적 인 관점에서 볼 때 이러한 분기가 "특별한" 것은 아닙니다. 브랜치 유형은 사용 방법에 따라 분류됩니다. 
+일반적인 Git 브랜치라고 생각하시면 됩니다.  
 
 Feature branches
-
-
 
 May branch off from:
 develop
