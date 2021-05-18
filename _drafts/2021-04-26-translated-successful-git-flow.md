@@ -146,8 +146,8 @@ build and roll-out our software to our production servers everytime there was a 
 master브랜치에 변경작업들 병합될때마다, 새로운 상용 릴리즈가 정의됩니다.
 master브랜치에 커밋될 때마다, Git 훅 스크립트를 통해 자동으로 소프트웨어를 빌드하고 상용서버에 배포 할 수 있습니다.
 
-Supporting branches
-지원 브랜치
+## Supporting branches
+## 지원 브랜치
 
 Next to the main branches master and develop, 
 our development model uses a variety of supporting branches to aid parallel development 
@@ -176,43 +176,74 @@ The branch types are categorized by how we use them. They are of course plain ol
 기술적 인 관점에서 볼 때 이러한 분기가 "특별한" 것은 아닙니다. 브랜치 유형은 사용 방법에 따라 분류됩니다. 
 일반적인 Git 브랜치라고 생각하시면 됩니다.  
 
-Feature branches
-
+## Feature branches
+## 기능 브랜치 
 May branch off from:
+<develop>브랜치로부터 기능 브랜치를 시작합니다. 
 develop
 Must merge back into:
+다시 <develop>브랜치로 기능 브랜치를 병합합니다.
 develop
+
 Branch naming convention:
 anything except master, develop, release-*, or hotfix-*
-Feature branches (or sometimes called topic branches) are used to develop new features for the upcoming or a distant future release. When starting development of a feature, the target release in which this feature will be incorporated may well be unknown at that point. The essence of a feature branch is that it exists as long as the feature is in development, but will eventually be merged back into develop (to definitely add the new feature to the upcoming release) or discarded (in case of a disappointing experiment).
+기능브랜치명은 아래 브랜치명을 제외하고 만들면된다.  
+master, develop, release-*, or hotfix-*
+
+Feature branches (or sometimes called topic branches) are used to develop new features 
+for the upcoming or a distant future release. When starting development of a feature, 
+the target release in which this feature will be incorporated may well be unknown at that point. 
+The essence of a feature branch is that it exists as long as the feature is in development, 
+but will eventually be merged back into develop (to definitely add the new feature to the upcoming release) 
+or discarded (in case of a disappointing experiment).
+기능 브랜치(토픽 브랜치)는 향후 릴리즈 할 신규 기능을 개발할 때 사용합니다. 이 기능을 개발하는 시점에는 릴리즈 시점을 알 수 없습니다. 
+기능 브랜치는 개발 진행이 될때까지는 존재하지만, 결국 <develop> 브랜치에 병합됩니다. 
+물론, 릴리즈에 포함되지 못할 경우 삭제됩니다. 
 
 Feature branches typically exist in developer repos only, not in origin.
+기능 브랜치는 일반적으로 개발자 레파지토리에만 존재하며, origin에는 존재하지 않는다. 
 
-Creating a feature branch
+## Creating a feature branch
+기능 브랜치 생성하기
 
 When starting work on a new feature, branch off from the develop branch.
+기능 브랜치를 통해 작업을 시작할 때는, <develop>브랜치에서 분기합니다. 
 
 $ git checkout -b myfeature develop
 Switched to a new branch "myfeature"
+신규 브랜치  "myfeature"로 전환
+
 Incorporating a finished feature on develop
+완성된 기능을 <develop> 브랜치에 통합
 
 Finished features may be merged into the develop branch to definitely add them to the upcoming release:
+개발이 완료된 기능 브랜치는 이후 릴리즈에 변경사항이 추가되도록 <develop>브랜치에 병합한다. 
 
 $ git checkout develop
 Switched to branch 'develop'
+<develop>브랜치로 전환
 $ git merge --no-ff myfeature
-Updating ea1b82a..05e9557
-(Summary of changes)
+업데이티 ea1b82a..05e9557
+(변경 사항 요약)
 $ git branch -d myfeature
 Deleted branch myfeature (was 05e9557).
+브랜치 myfeature 삭제
 $ git push origin develop
+
 The --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature. Compare:
+--no-ff플래그는 병합이 fast-forward를 수행 할 수있는 경우에도, 항상 새로운 객체를 커밋 만들 병합됩니다. 
+이렇게하면 기능 분기의 과거 존재에 대한 정보가 손실되는 것을 방지하고 기능을 추가 한 모든 커밋을 그룹화합니다. 비교:
+![](https://nvie.com/img/merge-without-ff@2x.png)
 
-
-
-In the latter case, it is impossible to see from the Git history which of the commit objects together have implemented a feature—you would have to manually read all the log messages. Reverting a whole feature (i.e. a group of commits), is a true headache in the latter situation, whereas it is easily done if the --no-ff flag was used.
+In the latter case, 
+it is impossible to see from the Git history which of the commit objects together have implemented a feature—you would have to manually read all the log messages. Reverting a whole feature (i.e. a group of commits), is a true headache in the latter situation, whereas it is easily done if the --no-ff flag was used.
+후자의 경우 Git 히스토리에서 어떤 커밋 객체가 함께 기능을 구현했는지 확인할 수 없습니다. 
+모든 로그 메시지를 수동으로 읽어야합니다. 
+전체 기능 (즉, 커밋 그룹)을 되 돌리는 것은 후자의 상황에서 진정한 골칫거리이지만 
+--no-ff플래그를 사용 하면 쉽게 수행 할 수 있습니다 .
 
 Yes, it will create a few more (empty) commit objects, but the gain is much bigger than the cost.
+몇몇 빈 커밋 객체들이 생성되지만, 비용보다 얻는게 더 많습니다. 
 
 Release branches
 
